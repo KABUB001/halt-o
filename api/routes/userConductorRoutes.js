@@ -3,10 +3,7 @@ const router = express.Router()
 const {getAllConductors, createConductor, getConductor, updateConductor, deleteConductor} = require("../controllers/userConductorController")
 
 
-router.route("/").get(getAllConductors);
-
-
-router.route("/").post(createConductor);
+router.route("/").get(getAllConductors).post(createConductor);
 
 
 router.route("/:id").get(getConductor);
