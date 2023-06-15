@@ -3,9 +3,9 @@ const dotenv  = require("dotenv").config()
 const app = express()
 
 
-app.use("/api/users/passagers", require("./routes/userPassagerRoutes"))
+app.use("/api/users/passengers", require("./routes/userPassengerRoutes"))
 
-app.use("/api/users/conducteurs", require("./routes/userConducteurRoutes"))
+app.use("/api/users/conductors", require("./routes/userConductorRoutes"))
 
 app.post("/api/contacts",)
 const port = process.env.PORT || 5000 
