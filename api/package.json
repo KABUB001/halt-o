@@ -15,5 +15,8 @@
   "license": "MIT",
   "scripts": {
     "server": "nodemon app.js"
+  },
+  "dependencies": {
+    "express-async-handler": "^1.2.0"
   }
 }
