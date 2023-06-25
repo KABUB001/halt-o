@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-
+const uniqueValidator = require('mongoose-unique-validator');
 const passengerSchema = mongoose.Schema({
     name: {
         type: String,
@@ -11,7 +11,8 @@ const passengerSchema = mongoose.Schema({
     },
     email:{
         type: String,
-        required: [true, "Please add the conductor email "]
+        required: [true, "Please add the conductor email "],
+        unique : true
     },
     phone: {
         type: String,
@@ -29,4 +30,6 @@ const passengerSchema = mongoose.Schema({
     timestamps: true,
 })
 
+
+passengerSchema.plugin(uniqueValidator);
 module.exports = mongoose.model("Passager", passengerSchema)

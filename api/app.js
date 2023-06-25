@@ -6,6 +6,7 @@ const connectDb = require("./config/dbConnection")
 
 connectDb()
 app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 
 app.use("/api/users/passengers", require("./routes/userPassengerRoutes"))
 

@@ -1,4 +1,5 @@
 const asyncHandler = require("express-async-handler")
+const bcrypt = require("bcrypt")
 const Passenger = require("../models/passengerModel")
 //@desc Get all passengers
 //@route GET /api/users/passenger
@@ -12,8 +13,10 @@ const getAllPassengers = asyncHandler( async(req, res)=>{
 //@route POST /api/users/passenger
 //@access public
 const createPassenger = asyncHandler( async (req, res)=>{
+    let password = await bcrypt.hash(req.body.password, 10)
     console.log("The request body is:",req.body);
-    const {name, first_name, email, phone, password, image} = req.body;
+    const {name, first_name, email, phone, image} = req.body;
+    
     if(!name || !email || !phone || !image || !password || !first_name){
         res.status(400);
         throw new Error("All fields are mandatory !")
